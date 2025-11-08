@@ -1,0 +1,5 @@
+print("welcome")
+print(67383)
+print("hamza",24)
+print("hello","\n","python")
+print("welcome to",end="*")
