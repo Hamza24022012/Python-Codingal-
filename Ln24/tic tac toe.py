@@ -1,6 +1,6 @@
-theBoard = {'7':'  ','8':'  ','9':'  ', 
-            '4':'  ','5':'  ','6':'  ', 
-            '1':'  ','2':'  ','3':'  ',}
+theBoard = {'7':' ','8':' ','9':' ', 
+            '4':' ','5':' ','6':' ', 
+            '1':' ','2':' ','3':' ',}
 
 board_keys=[]
 
@@ -76,9 +76,9 @@ def game():
     else:
         turn='X'
 restart= input("Play again ?")
-if restart == 'y' or 'Y':
+if restart == 'y' or restart=='Y':
     for keys in board_keys:
-        theBoard[key]=" "
+        theBoard[keys]=" "
     game()
 
 if __name__ == "__main__":
