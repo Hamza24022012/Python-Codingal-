@@ -66,20 +66,20 @@ def game():
             elif theBoard['1'] == theBoard['5'] == theBoard['9'] != ' ':
                 printBoard(theBoard)
                 print("\n Game Over.\n")
-                print(turn + "won")
+                print(turn + " won")
                 break
-    if count ==9:
-        print("\n Game Over \n")
-        print("it is a tie")
-    if turn=='X':
-        turn='O'
-    else:
-        turn='X'
-restart= input("Play again ?")
-if restart == 'y' or restart=='Y':
-    for keys in board_keys:
-        theBoard[keys]=" "
-    game()
+        if count ==9:
+            print("\n Game Over \n")
+            print("it is a tie")
+        if turn=='X':
+            turn='O'
+        else:
+            turn='X'
+    restart= input("Play again ?")
+    if restart == 'y' or restart=='Y':
+        for keys in board_keys:
+            theBoard[keys]=" "
+        game()
 
 if __name__ == "__main__":
     game()
