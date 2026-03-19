@@ -1,12 +1,12 @@
 class vehicle:
-    def __init__(self,name,max_speed,mileage):
-        self.name=name
-        self.max_speed=max_speed
-        self.mileage=mileage
+    def __init__(self,fare):
+       
+        self.fare=fare
 class bus(vehicle):
-    pass
-
-school_bus=bus("school volvo",180,12)
-print("vehicle name:",school_bus.name)
-print("max speed:",school_bus.max_speed)
-print("mileage:",school_bus.mileage)
+    def __init__(self,fare,count):
+        self.count=count
+        super().__init__(fare)
+    def fare(self):
+        print("fare is",self.count*self.fare)
+f=bus(10,5)
+f.fare()
