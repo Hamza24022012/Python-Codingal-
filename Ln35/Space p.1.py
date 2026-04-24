@@ -35,7 +35,7 @@ num_of_enemies=7
 for i in range(num_of_enemies):
     enemyImg.append(pygame.image.load('Ln35\\enemy.png'))
     enemyX.append(random.randint(0,SCREEN_WIDTH-64))
-    enemyX.append(random.randint(ENEMY_START_MIN,ENEMY_START_MAX))
+    enemyY.append(random.randint(ENEMY_START_MIN,ENEMY_START_MAX))
     enemyX_change.append(ENEMY_SPEED_X)
     enemyY_change.append(ENEMY_SPEED_Y) 
 
@@ -89,7 +89,7 @@ while running:
             if event.key==pygame.K_RIGHT:
                 playerX_change=5
             if event.key==pygame.K_SPACE and bullet_state=="ready":
-                bulletX=playerX_change
+                bulletX=playerX
                 fire_bullet(bulletX,bulletY)
         if event.type==pygame.KEYUP and event.key in [pygame.K_LEFT,pygame.K_RIGHT]:
             playerX_change=0
@@ -127,4 +127,4 @@ while running:
     
     player(playerX,playerY)
     show_score(textX,textY)
-    pygame.display.update
+    pygame.display.update()
