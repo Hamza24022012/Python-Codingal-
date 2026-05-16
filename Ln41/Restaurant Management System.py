@@ -14,7 +14,7 @@ class RestaurantOrderManagement :
             "CHEESE BURGER":2.5,
             "DRINKS":1
         }
-        self.exchange_rate=82
+        self.exchange_rate=279.07
         self.setup_background(root)
         frame=ttk.Frame(root)
         frame.place(relx=0.5,rely=0.5,anchor=tk.CENTER)
@@ -79,3 +79,36 @@ class RestaurantOrderManagement :
             padx=10,
             pady=10
         )
+
+    def setup_background(self,root):
+        bg_width,bg_height=800,600
+        canvas=tk.Canvas(root,width=bg_width,height=bg_height)
+        canvas.pack()
+
+        original_image = tk.PhotoImage(file="Ln41\\img.jpg")
+        background_image=original_image.subsample(
+            original_image.width() // bg_width,
+            original_image.height() // bg_height
+        )
+
+        canvas.create_image(0,0, anchor=tk.NW,image=background_image)
+        canvas.image=background_image
+
+    def update_menu_prices(self, *args):
+        currency=self.currency_var.get()
+        symbol="روپیہ" if currency == "PKR" else "$"
+        rate = self.exchange_rate if currency == "PKR" else 1
+
+        for item, label in self.menu_labels.items():
+            price=self.menu_items[item]*rate
+            label.config(text=f"{item} ({symbol}{price}):")
+
+    def place_order(self):
+        total_cost=0
+        order_summary="Order Summary:\n"
+        currency=self.currency_var.get()
+        symbol="روپیہ" if currency == "PKR" else "$"
+        rate = self.exchange_rate if currency == "PKR" else 1
+ 
+        for item,entry in self.menu_quantities.items():
+            quantity=entry.get()
