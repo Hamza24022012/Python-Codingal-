@@ -45,7 +45,9 @@ bulletY=PLAYER_START_Y
 bulletX_change=0
 bulletY_change=BULLET_SPEED_Y
 bullet_state="ready"
-
+background_sound=pygame.mixer.Sound(r"Ln35\the_mountain-background-music-159125 (1).mp3")
+pygame.mixer.music.load(r"Ln35\the_mountain-background-music-159125 (1).mp3")
+pygame.mixer.music.play(-1)
 score_value=0
 font=pygame.font.Font('freesansbold.ttf',32)
 textX=10
@@ -124,6 +126,8 @@ while running:
     elif bullet_state=="fire":
         fire_bullet(bulletX,bulletY)
         bulletY-=bulletY_change
+
+
     
     player(playerX,playerY)
     show_score(textX,textY)
